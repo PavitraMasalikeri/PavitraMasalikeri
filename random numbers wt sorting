@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define SIZE 2//  w w w .  j ava  2  s.co  m
+
+int main()
+{
+    int bubble[SIZE];
+    int n1,n2,temp,x;
+
+    srand((unsigned)time(NULL));
+/* Display original array */
+    puts("input:");
+    for(x=0;x<SIZE;x++)
+    {
+        bubble[x] = rand();
+        bubble[x] = (bubble[x] % 100)+1;
+        printf("%d\t",bubble[x]);
+    }
+    putchar('\n');
+
+/* Bubble sort */
+    for(n2=0;n2<SIZE-1;n2++)
+    {
+        for(n1=n2+1;n1<SIZE;n1++)
+        {
+            if(bubble[n2] > bubble[n1])
+            {
+                temp=bubble[n2];
+                bubble[n2] = bubble[n1];
+                bubble[n1] = temp;
+            }
+        }
+    }
+
+/* Display sorted array */
+    puts("output:");
+    for(x=0;x<SIZE;x++)
+        printf("%d\t",bubble[x]);
+    putchar('\n');
+      return(0);
+}
